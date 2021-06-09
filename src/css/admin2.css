@@ -10352,10 +10352,10 @@ body.sidebar-toggled footer.sticky-footer {
 }
 a{
   color: #858796;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 a:hover{
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 0rem; }
 .toggle.ios .toggle-handle { border-radius: 0rem; }

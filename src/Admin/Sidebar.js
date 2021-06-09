@@ -37,7 +37,7 @@ export default function Sidebar() {
             <i className="fas fa-laugh-wink"></i>
           </div>
           <div className="sidebar-brand-text mx-3">
-            SB Admin <sup>2</sup>
+          Resmantem
           </div>
         </a>
 
@@ -86,26 +86,26 @@ export default function Sidebar() {
             <div className="bg-white py-2 collapse-inner rounded">
               <h6 className="collapse-header">Custom Components:</h6>
 
-              <Link id="Link" to="/">
-                <a className="collapse-item" href="buttons.html">
+              <Link id="Link" to="/all-orders">
+                <a className="collapse-item" href="">
                 All Orders
                 </a>
               </Link>
 
-              <Link id="Link" to="/">
-                <a className="collapse-item" href="buttons.html">
+              <Link id="Link" to="/pending-orders">
+                <a className="collapse-item" href="">
                 Pending Orders
                 </a>
               </Link>
 
-              <Link id="Link" to="/">
-                <a className="collapse-item" href="buttons.html">
+              <Link id="Link" to="/on-process-orders">
+                <a className="collapse-item" href="">
                 On Process Orders
                 </a>
               </Link>
 
-              <Link id="Link" to="/">
-                <a className="collapse-item" href="buttons.html">
+              <Link id="Link" to="/completed-orders">
+                <a className="collapse-item" href="">
                 Completed Orders
                 </a>
               </Link>
@@ -329,25 +329,6 @@ export default function Sidebar() {
             id="sidebarToggle"
             onClick={sidebarToggle}
           ></button>
-        </div>
-
-        {/* <!-- Sidebar Message --> */}
-        <div className="sidebar-card d-none d-lg-flex">
-          <img
-            className="sidebar-card-illustration mb-2"
-            src="img/undraw_rocket.svg"
-            alt="..."
-          />
-          <p className="text-center mb-2">
-            <strong>SB Admin Pro</strong> is packed with premium features,
-            components, and more!
-          </p>
-          <a
-            className="btn btn-success btn-sm"
-            href="https://startbootstrap.com/theme/sb-admin-pro"
-          >
-            Upgrade to Pro!
-          </a>
         </div>
       </ul>
     </div>

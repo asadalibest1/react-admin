@@ -10,6 +10,8 @@ import Sidebar from "../Admin/Sidebar";
 import Navbar from "../Admin/Navbar";
 import Admins from "../Admin/Management/Admins";
 import Customers from "../Admin/Management/Customers";
+import AllOrders from "../Admin/Orders/AllOrders";
+
 import { Switch, Route } from "react-router-dom";
 
 export default function App1() {
@@ -17,11 +19,11 @@ export default function App1() {
 
     <div className="row">
 
-        <div id="wrapper">
+        <div id="wrapper" style={{ width: "100%"}}>
 
       <Sidebar />
 
-      <div id="content-wrapper" className="">
+      <div id="content-wrapper">
         <div id="content">
           <Navbar />
 
@@ -32,10 +34,18 @@ export default function App1() {
           <Route path="/customers">
             <Customers />
           </Route>
+
+          <Route path="/all-orders">
+            <AllOrders />
+          </Route>
+
           <Route path="/">
             <Dashboard />
           </Route>
+
+
           </Switch>
+
 
 
         </div>

@@ -88,94 +88,54 @@ export default function AdminTable() {
           />,
         Action: <AdminsAction />,
         },
-      {
-        Id: "02",
-        Image: (
-          <img
-            className="rounded-circle p-1 border border-success"
-            src="https://officio.work/user-uploads/avatar/a869cd5fcb4b4b0f05cae0d2d7f0813c.jpg"
-            style={{ width: "55px", height: "55px" }}
-          />
-        ),
-        AdminName: "Donna Hubber",
-        AdminEmail: "DonnaHubber@gmail.com",
-        RoleName: "Admin 2",
-        date: "2021/05/25",
-        Status: <BootstrapSwitchButton
-                  checked={true}
-                  onlabel='On'
-                  offlabel='Off'
-                  onChange={(check)=> setChecked(check)}
-                  size="sm"
-                  onstyle="primary"
-                  offstyle="warning"
-          />,
-        Action: (
-          <div class="btn-group dropbottom">
-            <button
-              type="button"
-              class="btn dropdown-toggle"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <i class="fa fa-cogs" aria-hidden="true"></i>
-            </button>
-            <div class="dropdown-menu">
-              <button class="dropdown-item" type="button">
-                Action
-              </button>
-              <button class="dropdown-item" type="button">
-                Another action
-              </button>
-              <div class="dropdown-divider"></div>
-              <button class="dropdown-item" type="button">
-                Something else here
-              </button>
-            </div>
-          </div>
-        ),
-      },
-      {
-        Id: "03",
-        Image: (
-          <img
-            className="rounded-circle p-1 border border-success"
-            src="https://officio.work/user-uploads/avatar/a869cd5fcb4b4b0f05cae0d2d7f0813c.jpg"
-            style={{ width: "55px", height: "55px" }}
-          />
-        ),
-        AdminName: "Donna Hubber",
-        AdminEmail: "DonnaHubber@gmail.com",
-        RoleName: "Admin 2",
-        date: "2021/05/25",
-        Status:"",
-        Action: (
-          <div class="btn-group dropbottom">
-            <button
-              type="button"
-              class="btn dropdown-toggle"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              <i class="fa fa-cogs" aria-hidden="true"></i>
-            </button>
-            <div class="dropdown-menu">
-              <button class="dropdown-item" type="button">
-                Action
-              </button>
-              <button class="dropdown-item" type="button">
-                Another action
-              </button>
-              <div class="dropdown-divider"></div>
-              <button class="dropdown-item" type="button">
-                Something else here
-              </button>
-            </div>
-          </div>
-        ),
-      },
+        {
+          Id: "02",
+          Image: (
+            <img
+              className="rounded-circle p-1 border border-success"
+              src="https://officio.work/user-uploads/avatar/a869cd5fcb4b4b0f05cae0d2d7f0813c.jpg"
+              style={{ width: "55px", height: "55px" }}
+            />
+          ),
+          AdminName: "Donna Hubber",
+          AdminEmail: "DonnaHubber@gmail.com",
+          RoleName: "Admin 2",
+          date: "2021/05/25",
+          Status: <BootstrapSwitchButton
+                    checked={true}
+                    onlabel='On'
+                    offlabel='Off'
+                    onChange={(check)=> setChecked(check)}
+                    size="sm"
+                    onstyle="primary"
+                    offstyle="warning"
+            />,
+          Action: <AdminsAction />,
+          },
+          {
+            Id: "03",
+            Image: (
+              <img
+                className="rounded-circle p-1 border border-success"
+                src="https://officio.work/user-uploads/avatar/a869cd5fcb4b4b0f05cae0d2d7f0813c.jpg"
+                style={{ width: "55px", height: "55px" }}
+              />
+            ),
+            AdminName: "Donna Hubber",
+            AdminEmail: "DonnaHubber@gmail.com",
+            RoleName: "Admin 2",
+            date: "2021/05/25",
+            Status: <BootstrapSwitchButton
+                      checked={true}
+                      onlabel='On'
+                      offlabel='Off'
+                      onChange={(check)=> setChecked(check)}
+                      size="sm"
+                      onstyle="primary"
+                      offstyle="warning"
+              />,
+            Action: <AdminsAction />,
+            },
     ],
   });
 

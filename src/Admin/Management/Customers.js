@@ -5,6 +5,8 @@ import * as $ from "jquery";
 
 export default function AdminUsers() {
 
+const [ShowPassword, setShowPassword] = React.useState(false)
+
   $(document).ready(() => {
     $(".c-hover button").css({ 'color': 'transparent', 'border': 'transparent' });
     $(".c-hover button").hover(function () {
@@ -97,11 +99,12 @@ export default function AdminUsers() {
               </div>
 
               <div class="input-group mb-3 col-md-6">
-                <input type="password" class="form-control" placeholder="Enter password" />
+                <input type={ShowPassword ? "password" : "text"} class="form-control" placeholder="Enter password" />
                 <div class="input-group-append">
-                  <span class="input-group-text">
-                    <i class="fa fa-eye" aria-hidden="true"></i>
-                  </span>
+
+                <button type="button" class="btn btn-default border"
+                onClick={()=> setShowPassword(!ShowPassword)}>
+                      <i class={ShowPassword ? "fa fa-eye" : "fa fa-eye-slash"} aria-hidden="true"></i></button>
                 </div>
               </div>
 

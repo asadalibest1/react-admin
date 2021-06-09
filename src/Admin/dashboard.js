@@ -9,8 +9,18 @@ export default function Dashboard() {
   return (
     <>
       <div className="container-fluid">
+
+        <div className="row">
+          <div className="col-md-1 text-right">
+            <i class="fa fa-home fa-3x mt-1" aria-hidden="true"></i>
+          </div>
+          <div className="col-md-11 d-flex align-items-end">
+            <h1 class="h3 text-gray-800 m-0 p-0">Dashboard</h1>
+          </div>
+        </div>
+
         <div className="d-sm-flex align-items-center justify-content-between mb-4">
-          <h1 className="h3 mb-0 text-gray-800">Dashboard</h1>
+          <h1></h1>
           <a
             href="#"
             className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
@@ -27,10 +37,10 @@ export default function Dashboard() {
                 <div className="row no-gutters align-items-center">
                   <div className="col mr-2">
                     <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                      Earnings (Monthly)
+                      Today Order
                     </div>
                     <div className="h5 mb-0 font-weight-bold text-gray-800">
-                      $40,000
+                      5
                     </div>
                   </div>
                   <div className="col-auto">
@@ -47,10 +57,10 @@ export default function Dashboard() {
                 <div className="row no-gutters align-items-center">
                   <div className="col mr-2">
                     <div className="text-xs font-weight-bold text-success text-uppercase mb-1">
-                      Earnings (Annual)
+                      Today Sale
                     </div>
                     <div className="h5 mb-0 font-weight-bold text-gray-800">
-                      $215,000
+                      11.8k
                     </div>
                   </div>
                   <div className="col-auto">
@@ -67,12 +77,12 @@ export default function Dashboard() {
                 <div className="row no-gutters align-items-center">
                   <div className="col mr-2">
                     <div className="text-xs font-weight-bold text-info text-uppercase mb-1">
-                      Tasks
+                      Total Customer
                     </div>
                     <div className="row no-gutters align-items-center">
                       <div className="col-auto">
                         <div className="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                          50%
+                          5.9k
                         </div>
                       </div>
                       <div className="col">
@@ -103,10 +113,10 @@ export default function Dashboard() {
                 <div className="row no-gutters align-items-center">
                   <div className="col mr-2">
                     <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                      Pending Requests
+                      Total Delivered
                     </div>
                     <div className="h5 mb-0 font-weight-bold text-gray-800">
-                      18
+                      4.1k
                     </div>
                   </div>
                   <div className="col-auto">
@@ -123,7 +133,7 @@ export default function Dashboard() {
             <div className="card shadow mb-4">
               <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 className="m-0 font-weight-bold text-primary">
-                  Earnings Overview
+                  Lifetime Orders
                 </h6>
                 <div className="dropdown no-arrow">
                   <a
@@ -158,7 +168,7 @@ export default function Dashboard() {
               <div className="card-body">
                 {/* <div className="chart-area">
                     </div> */}
-                  <EarningsOverview />
+                <EarningsOverview />
               </div>
             </div>
           </div>
@@ -167,7 +177,7 @@ export default function Dashboard() {
             <div className="card shadow" style={{ height: '90%' }}>
               <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 className="m-0 font-weight-bold text-primary">
-                  Revenue Sources
+                  Total Reservation
                 </h6>
                 <div className="dropdown no-arrow">
                   <a
@@ -199,7 +209,7 @@ export default function Dashboard() {
                   </div>
                 </div>
               </div>
-              <div className="card-body mx-3" style={{ height: "100% !important"}}>
+              <div className="card-body mx-3" style={{ height: "100% !important" }}>
                 <div className="myChart-pie chart-pie mb-0">
                   {/* <canvas id="myPieChart"></canvas> */}
                   <RevenueSources />
@@ -209,6 +219,89 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
+
+
+
+        <div className="row">
+          <div className="col-md-4">
+            <div className="card shadow mb-4">
+              <div className="card-header py-3">
+                <h6 className="m-0 font-weight-bold text-primary">
+                  Pending Orders
+                </h6>
+              </div>
+              <div className="card-body pt-2">
+                {
+                  Array.from(Array(5), () => {
+                    return (
+                      <div className="my-3">
+                        <small className="h6 font-weight-bold">Name : Walkin</small><br />
+                        <small className="">Phone: 8801717426371</small><br />
+                        <small className="">Order No.: (9998)</small><br />
+                        <small className="">Table No: 1</small><br />
+                        <small className="">Time : 11:18:40</small>
+                      </div>
+                    )
+                  })
+                }
+
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="card shadow mb-4">
+              <div className="card-header py-3">
+                <h6 className="m-0 font-weight-bold text-primary">
+                  On Process Orders
+                </h6>
+              </div>
+              <div className="card-body pt-2">
+
+              {
+                  Array.from(Array(5), () => {
+                    return (
+                      <div className="my-3">
+                        <small className="h6 font-weight-bold">Name : Rameez</small><br />
+                        <small className="">Phone: 8801717426371</small><br />
+                        <small className="">Order No.: (9998)</small><br />
+                        <small className="">Table No: 4</small><br />
+                        <small className="">Time : 11:18:40</small>
+                      </div>
+                    )
+                  })
+                }
+
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="card shadow mb-4">
+              <div className="card-header py-3">
+                <h6 className="m-0 font-weight-bold text-primary">
+                  Completed Orders
+                </h6>
+              </div>
+              <div className="card-body pt-2">
+              {
+                  Array.from(Array(5), () => {
+                    return (
+                      <div className="my-3">
+                        <small className="h6 font-weight-bold">Name : Ahsan</small><br />
+                        <small className="">Phone: 8801717426371</small><br />
+                        <small className="">Order No.: (9998)</small><br />
+                        <small className="">Table No: 12</small><br />
+                        <small className="">Time : 11:18:40</small>
+                      </div>
+                    )
+                  })
+                }
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
 
         <div className="row">
           <div className="col-lg-6 mb-4">
@@ -384,25 +477,6 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="card shadow mb-4">
-              <div className="card-header py-3">
-                <h6 className="m-0 font-weight-bold text-primary">
-                  Development Approach
-                </h6>
-              </div>
-              <div className="card-body">
-                <p>
-                  SB Admin 2 makes extensive use of Bootstrap 4 utility classes
-                  in order to reduce CSS bloat and poor page performance. Custom
-                  CSS classes are used to create custom components and custom
-                  utility classes.
-                </p>
-                <p className="mb-0">
-                  Before working with this theme, you should become familiar
-                  with the Bootstrap framework, especially the utility classes.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
