@@ -151,6 +151,17 @@ export default function Sidebar() {
           </div>
         </li>
 
+
+            {/* Table */}
+            <li className="nav-item">
+          <Link id="Link" to="/setting-table">
+            <a className="nav-link" href="#">
+              <i className="fas fa-fw fa-tachometer-alt"></i>
+              <span>Table</span>
+            </a>
+          </Link>
+        </li>
+
             {/* Settings */}
         <li className="nav-item">
           <Link id="Link" to="/">

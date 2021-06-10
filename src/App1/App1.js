@@ -13,6 +13,10 @@ import Customers from "../Admin/Management/Customers";
 import AllOrders from "../Admin/Orders/AllOrders";
 
 import { Switch, Route } from "react-router-dom";
+import CompletedOrders from "../Admin/Orders/CompletedOrders";
+import OnProcessOrders from "../Admin/Orders/OnProcessOrders";
+import PendingOrders from "../Admin/Orders/PendingOrders";
+import Table from "../Admin/Table/Table";
 
 export default function App1() {
   return (
@@ -37,6 +41,22 @@ export default function App1() {
 
           <Route path="/all-orders">
             <AllOrders />
+          </Route>
+
+          <Route path="/completed-orders">
+            <CompletedOrders />
+          </Route>
+
+          <Route path="/on-process-orders">
+            <OnProcessOrders />
+          </Route>
+
+          <Route path="/pending-orders">
+            <PendingOrders />
+          </Route>
+
+          <Route path="/setting-table">
+            <Table />
           </Route>
 
           <Route path="/">

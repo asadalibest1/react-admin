@@ -1,9 +1,9 @@
 import React from "react";
-import PendingOrdersTable from "./Tables/PendingOrders";
+// import OnProcessOrdersTable from "./Tables/OnProcessOrders";
 // import * as $ from "jquery";
 // import noImagePreview from "../../img/noImagePreview.png"
 
-export default function PendingOrders() {
+export default function Table() {
 
 //   const [ShowPassword, setShowPassword] = React.useState(false)
 
@@ -17,8 +17,8 @@ export default function PendingOrders() {
             <i class="fa fa-home fa-3x mt-1" aria-hidden="true"></i>
           </div>
         <div className="col-md-11">
-            <h1 class="h3 mb-2 text-gray-800">Orders</h1>
-            <h6>Pending Orders</h6>
+            <h1 class="h3 mb-2 text-gray-800">Table</h1>
+            <h6>Table</h6>
         </div>
 
 
@@ -37,21 +37,91 @@ export default function PendingOrders() {
         </div>
         <p class="mb-4"></p>
 
+
+        <div className="row">
+              <div className="col-lg-3 mb-4 text-center">
+                <div className="card bg-primary text-white shadow d-inline-block text-left" style={{ width:"150px" }}>
+                  <div className="card-body">
+                    Primary
+                    <div className="text-white-50 small">#4e73df</div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 mb-4 text-center">
+                <div className="card bg-success text-white shadow d-inline-block text-left" style={{ width:"150px" }}>
+                  <div className="card-body">
+                    Success
+                    <div className="text-white-50 small">#1cc88a</div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 mb-4 text-center">
+                <div className="card bg-info text-white shadow d-inline-block text-left" style={{ width:"150px" }}>
+                  <div className="card-body">
+                    Info
+                    <div className="text-white-50 small">#36b9cc</div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 mb-4 text-center">
+                <div className="card bg-warning text-white shadow d-inline-block text-left" style={{ width:"150px" }}>
+                  <div className="card-body">
+                    Warning
+                    <div className="text-white-50 small">#f6c23e</div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 mb-4 text-center">
+                <div className="card bg-danger text-white shadow d-inline-block text-left" style={{ width:"150px" }}>
+                  <div className="card-body">
+                    Danger
+                    <div className="text-white-50 small">#e74a3b</div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 mb-4 text-center">
+                <div className="card bg-secondary text-white shadow d-inline-block text-left" style={{ width:"150px" }}>
+                  <div className="card-body">
+                    Secondary
+                    <div className="text-white-50 small">#858796</div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 mb-4 text-center">
+                <div className="card bg-light text-black shadow d-inline-block text-left" style={{ width:"150px" }}>
+                  <div className="card-body">
+                    Light
+                    <div className="text-black-50 small">#f8f9fc</div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 mb-4 text-center">
+                <div className="card bg-dark text-white shadow d-inline-block text-left" style={{ width:"150px" }}>
+                  <div className="card-body">
+                    Dark
+                    <div className="text-white-50 small">#5a5c69</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
         {/* <!-- DataTales Example --> */}
-        <div class="card shadow mb-4">
+        {/* <div class="card shadow mb-4">
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">
-                Pending Orders
+                On Process Orders
             </h6>
           </div>
           <div class="card-body">
             <div class={(window.innerWidth < 1000) ? "table-responsive" : ""}>
 
-            <PendingOrdersTable />
+            <OnProcessOrdersTable />
 
             </div>
           </div>
-        </div>
+        </div> */}
+
+        
       </div>
             {/* // <!-- addOrder --> */}
             <div class="modal fade" id="addOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

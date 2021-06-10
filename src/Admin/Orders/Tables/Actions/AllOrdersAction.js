@@ -4,7 +4,7 @@ import noImagePreview from "../../../../img/noImagePreview.png"
 // import SweetAlert from "react-bootstrap-sweetalert";
 import Conformed from '../../../alert/conformed';
 
-export default function CustomersAction() {
+export default function OrdersAction() {
 
     const [ShowAlert, setShowAlert] = React.useState(false);
     const [ShowPassword, setShowPassword] = React.useState(false)
@@ -24,11 +24,11 @@ export default function CustomersAction() {
                 </button>
                 <div class="dropdown-menu p-0">
                     <button class="dropdown-item py-2 border-bottom" type="button"
-                        data-toggle="modal" data-target="#viewCustomer"
+                        data-toggle="modal" data-target="#viewOrder"
                     >
                         <i class="fa fa-eye mr-2" aria-hidden="true"></i>View</button>
                     <button class="dropdown-item py-2" type="button"
-                        data-toggle="modal" data-target="#editCustomer"
+                        data-toggle="modal" data-target="#editOrder"
                     >
                         <i class="fa fa-file mr-2" aria-hidden="true"></i>
             Edit
@@ -42,133 +42,59 @@ export default function CustomersAction() {
                 </div>
             </div>
 
-            {/* // <!-- viewCustomer --> */}
-            <div class="modal fade" id="viewCustomer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            {/* // <!-- viewOrder --> */}
+            <div class="modal fade" id="viewOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-center modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">[User Name]</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Table</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body row pt-5">
+                        <div class="modal-body row">
 
-                            <div className="col-md-4 text-right pt-2">
-                                {/* <label>Image</label> */}
+                        <div class="input-control mb-3 col-md-6">
+                        <label for="name">Invoice</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">INV#</span>
                             </div>
-                            <div class="form-group col-md-6">
-                                <div className="p-1 border rounded float-right" style={{ width: "120px", height: "100px" }}>
-                                    <img src={noImagePreview} style={{ width: "100%", height: "100%" }} />
+                            <input type="text" class="form-control" />
+                            </div>
+                            </div>
+
+                            <div class="input-control mb-3 col-md-6">
+                        <label for="name">Table</label>
+                            <div class="input-group">
+                                <select class="form-control">
+                                <option value="table1">Table 1</option>
+                                <option value="table2">Table 2</option>
+                                <option value="table3">Table 3</option>
+                                <option value="table4">Table 4</option>
+                                <option value="table5">Table 5</option>
+                                <option value="table6">Table 6</option>
+                                <option value="table7">Table 7</option>
+                                <option value="table8">Table 8</option>
+                                <option value="table8">Table 8</option>
+                                <option value="table9">Table 9</option>
+                                </select>
                                 </div>
                             </div>
 
-                            <div className="col-md-4 text-right pt-2">
-                                <label for="name">Name</label>
+                            <div class="input-control mb-3 col-md-6">
+                        <label for="name">Total Item</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" />
                             </div>
-                            <div class="form-group col-md-4">
-                                <input type="text" class="form-control bg-white" disabled placeholder="Enter Name" />
-                            </div>
-                            <div class="form-group col-md-2"></div>
-
-                            <div className="col-md-4 text-right pt-2">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="email" class="form-control bg-white value1" disabled placeholder="Enter Email" />
-                            </div>
-                            <div class="col-md-2 p-0 m-0 c-hover">
-                                <button type="button" class="btn btn-outline-info hover-btn"
-                                    onClick={() => navigator.clipboard.writeText(document.querySelector('.value1').value)}
-                                >
-                                    <i class="fa fa-clone" aria-hidden="true"></i>
-                                </button>
                             </div>
 
-                            <div className="col-md-4 text-right pt-2">
-                                <label for="Password">Password</label>
+                            <div class="input-control mb-3 col-md-6">
+                        <label for="name">Amount</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" />
                             </div>
-                            <div class="input-group mb-3 col-md-6">
-                                <input type={ShowPassword ? "password" : "text"} class="form-control bg-white value2" disabled placeholder="Enter password" />
-                                <div class="input-group-append">
-
-                                    <button type="button" class="btn btn-default border"
-                                        onClick={() => setShowPassword(!ShowPassword)}>
-                                        <i class={ShowPassword ? "fa fa-eye" : "fa fa-eye-slash"} aria-hidden="true"></i></button>
-                                </div>
                             </div>
-                            <div class="col-md-2 p-0 m-0 c-hover">
-                                <button type="button" class="btn btn-outline-info hover-btn"
-                                    onClick={() => navigator.clipboard.writeText(document.querySelector('.value2').value)}>
-                                    <i class="fa fa-clone" aria-hidden="true"></i>
-                                </button>
-                            </div>
-
-
-                            <div className="col-md-4 text-right pt-2">
-                                <label for="email">Phone</label>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="number" class="form-control bg-white value3" disabled placeholder="+92123567890" />
-                            </div>
-                            <div class="col-md-2 p-0 m-0 c-hover">
-                                <button type="button" class="btn btn-outline-info hover-btn"
-                                    onClick={() => navigator.clipboard.writeText(document.querySelector('.value3').value)}
-                                >
-                                    <i class="fa fa-clone" aria-hidden="true"></i>
-                                </button>
-                            </div>
-
-                            <div className="col-md-4 text-right pt-2">
-                                <label for="email">IP Address</label>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="number" class="form-control bg-white value4" disabled placeholder="192.168. 0.1" />
-                            </div>
-                            <div class="col-md-2 p-0 m-0 c-hover">
-                                <button type="button" class="btn btn-outline-info hover-btn"
-                                    onClick={() => navigator.clipboard.writeText(document.querySelector('.value4').value)}
-                                >
-                                    <i class="fa fa-clone" aria-hidden="true"></i>
-                                </button>
-                            </div>
-
-                            <div className="col-md-4 text-right pt-2">
-                                <label>Address</label>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <textarea class="form-control bg-white value5" aria-label="With textarea" value="New York, United States of America." disabled></textarea>
-                            </div>
-                            <div class="col-md-2 p-0 m-0 c-hover">
-                                <button type="button" class="btn btn-outline-info hover-btn"
-                                    onClick={() => navigator.clipboard.writeText(document.querySelector('.value5').value)}
-                                >
-                                    <i class="fa fa-clone" aria-hidden="true"></i>
-                                </button>
-                            </div>
-
-                            <div className="col-md-4 text-right pt-2">
-                                <label for="name">Created On</label>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control bg-white" disabled placeholder="22-10-2016" />
-                            </div>
-
-                            <div className="col-md-4 text-right pt-2">
-                                <label for="name">Last Login</label>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control bg-white" disabled placeholder="03:05 05/07/2020" />
-                            </div>
-
-
-                            <div className="col-md-4 text-right pt-2">
-                                <label>About</label>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <textarea class="form-control bg-white" disabled aria-label="With textarea"></textarea>
-                            </div>
-
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -179,19 +105,62 @@ export default function CustomersAction() {
             </div>
 
 
-            {/* // <!-- editCustomer --> */}
-            <div class="modal fade" id="editCustomer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            {/* // <!-- editOrder --> */}
+            <div class="modal fade" id="editOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-center modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">[Edit Name]</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Table 3</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body row pt-5">
+                        <div class="modal-body row">
 
-                            <div className="col-md-4 text-right pt-2">
+
+                        <div class="input-control mb-3 col-md-6">
+                        <label for="name">Invoice</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">INV#</span>
+                            </div>
+                            <input type="text" class="form-control" />
+                            </div>
+                            </div>
+
+                            <div class="input-control mb-3 col-md-6">
+                        <label for="name">Table</label>
+                            <div class="input-group">
+                                <select class="form-control">
+                                <option value="table1">Table 1</option>
+                                <option value="table2">Table 2</option>
+                                <option value="table3">Table 3</option>
+                                <option value="table4">Table 4</option>
+                                <option value="table5">Table 5</option>
+                                <option value="table6">Table 6</option>
+                                <option value="table7">Table 7</option>
+                                <option value="table8">Table 8</option>
+                                <option value="table8">Table 8</option>
+                                <option value="table9">Table 9</option>
+                                </select>
+                                </div>
+                            </div>
+
+                            <div class="input-control mb-3 col-md-6">
+                        <label for="name">Total Item</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" />
+                            </div>
+                            </div>
+
+                            <div class="input-control mb-3 col-md-6">
+                        <label for="name">Amount</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" />
+                            </div>
+                            </div>
+
+                            {/* <div className="col-md-4 text-right pt-2">
                                 <label for="name">Name</label>
                             </div>
                             <div class="form-group col-md-4">
@@ -274,7 +243,7 @@ export default function CustomersAction() {
                                 <div className="p-1 rounded border" style={{ width: "120px", height: "100px" }}>
                                     <img src={noImagePreview} style={{ width: "100%", height: "100%" }} />
                                 </div>
-                            </div>
+                            </div> */}
 
 
 

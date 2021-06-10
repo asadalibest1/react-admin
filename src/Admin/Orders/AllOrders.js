@@ -3,7 +3,7 @@ import OrdersTable from "./Tables/AllOrders";
 // import * as $ from "jquery";
 // import noImagePreview from "../../img/noImagePreview.png"
 
-export default function AdminUsers() {
+export default function AllOrders() {
 
 //   const [ShowPassword, setShowPassword] = React.useState(false)
 
@@ -24,12 +24,12 @@ export default function AdminUsers() {
 
         <div className="col-md-12 text-right px-4">
             <a href="#" class="btn btn-primary btn-icon-split btn-sm"
-              data-toggle="modal" data-target="#new_admin"
+              data-toggle="modal" data-target="#addOrder"
             >
               <div class="d-flex align-items-center pl-2">
                 <i class="fa fa-plus"></i>
               </div>
-              <span class="text pl-1">New</span>
+              <span class="text pl-1">New Order</span>
             </a>
           </div>
 
@@ -53,6 +53,70 @@ export default function AdminUsers() {
           </div>
         </div>
       </div>
+            {/* // <!-- addOrder --> */}
+            <div class="modal fade" id="addOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-center modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add Order</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body row">
+
+                        <div class="input-control mb-3 col-md-6">
+                        <label for="name">Invoice</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">INV#</span>
+                            </div>
+                            <input type="text" class="form-control" />
+                            </div>
+                            </div>
+
+                            <div class="input-control mb-3 col-md-6">
+                        <label for="name">Table</label>
+                            <div class="input-group">
+                                <select class="form-control">
+                                <option value="table1">Table 1</option>
+                                <option value="table2">Table 2</option>
+                                <option value="table3">Table 3</option>
+                                <option value="table4">Table 4</option>
+                                <option value="table5">Table 5</option>
+                                <option value="table6">Table 6</option>
+                                <option value="table7">Table 7</option>
+                                <option value="table8">Table 8</option>
+                                <option value="table8">Table 8</option>
+                                <option value="table9">Table 9</option>
+                                </select>
+                                </div>
+                            </div>
+
+                            <div class="input-control mb-3 col-md-6">
+                        <label for="name">Total Item</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" />
+                            </div>
+                            </div>
+
+                            <div class="input-control mb-3 col-md-6">
+                        <label for="name">Amount</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" />
+                            </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">
+                                <i class="fa fa-plus mr-1" aria-hidden="true"></i>
+                                Add</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                <i class="fa fa-times mr-1" aria-hidden="true"></i>
+                                Close</button>                       </div>
+                    </div>
+                </div>
+            </div>
   </div>
   );
 }
