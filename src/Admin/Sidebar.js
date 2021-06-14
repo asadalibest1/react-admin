@@ -1,7 +1,7 @@
 import React from "react";
 // import Helmet from "react-helmet"
 // import "../vendor/js/sb-admin-2.js";
-
+import logo from "../img/logo.png"
 // import * as $ from "jquery";
 // window.$ = window.jQuery = jQuery;
 import { Link } from "react-router-dom";
@@ -33,8 +33,9 @@ export default function Sidebar() {
           className="sidebar-brand d-flex align-items-center justify-content-center"
           href="index.html"
         >
-          <div className="sidebar-brand-icon rotate-n-15">
-            <i className="fas fa-laugh-wink"></i>
+          <div className="sidebar-brand-icon" style={{ width:"100px", height:"65px" }}>
+            {/* <i className="fas fa-laugh-wink"></i> */}
+            <img src={logo} className="w-100 h-100" alt="logo"/>
           </div>
           <div className="sidebar-brand-text mx-3">
           Resmantem
@@ -147,10 +148,19 @@ export default function Sidebar() {
                 </a>
               </Link>
             </div>
-            
+
           </div>
         </li>
 
+            {/* Reservation */}
+            <li className="nav-item">
+          <Link id="Link" to="/reservation">
+            <a className="nav-link" href="#">
+              <i className="fas fa-fw fa-tachometer-alt"></i>
+              <span>Reservation</span>
+            </a>
+          </Link>
+        </li>
 
             {/* Table */}
             <li className="nav-item">

@@ -39,54 +39,30 @@ export default function Table() {
 
 
         <div className="row">
+             
               <div className="col-lg-3 mb-4 text-center">
-                <div className="card bg-primary text-white shadow d-inline-block text-left" style={{ width:"150px" }}>
+                <div className="card bg-info text-white shadow d-inline-block text-left" style={{ width:"155px" }}>
                   <div className="card-body">
-                    Primary
-                    <div className="text-white-50 small">#4e73df</div>
+                    <div className="text-white-50 small row">
+                      {/* #36b9cc */}
+                      <div className="col-md-12 d-flex">
+                          <i class="fa fa-calendar-check h4 border" aria-hidden="true"></i>
+                          <div className="pl-1 h-0 border">Adil</div>
+                          <div className="ml-auto h4 border">05</div>
+                      </div>
+                      <div className="col-md-6 font-weight-bold" style={{ fontSize: "12px"}}>
+                          <i class="fa fa-users mr-1"></i>
+                          3
+                      </div>
+                      <div className="col-md-6 text-right"style={{ fontSize: "10px" }}>
+                          <i class="fa fa-clock mr-1"></i>
+                          00:56
+                      </div>                       
+                      </div>
                   </div>
                 </div>
               </div>
-              <div className="col-lg-3 mb-4 text-center">
-                <div className="card bg-success text-white shadow d-inline-block text-left" style={{ width:"150px" }}>
-                  <div className="card-body">
-                    Success
-                    <div className="text-white-50 small">#1cc88a</div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3 mb-4 text-center">
-                <div className="card bg-info text-white shadow d-inline-block text-left" style={{ width:"150px" }}>
-                  <div className="card-body">
-                    Info
-                    <div className="text-white-50 small">#36b9cc</div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3 mb-4 text-center">
-                <div className="card bg-warning text-white shadow d-inline-block text-left" style={{ width:"150px" }}>
-                  <div className="card-body">
-                    Warning
-                    <div className="text-white-50 small">#f6c23e</div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3 mb-4 text-center">
-                <div className="card bg-danger text-white shadow d-inline-block text-left" style={{ width:"150px" }}>
-                  <div className="card-body">
-                    Danger
-                    <div className="text-white-50 small">#e74a3b</div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-3 mb-4 text-center">
-                <div className="card bg-secondary text-white shadow d-inline-block text-left" style={{ width:"150px" }}>
-                  <div className="card-body">
-                    Secondary
-                    <div className="text-white-50 small">#858796</div>
-                  </div>
-                </div>
-              </div>
+            
               <div className="col-lg-3 mb-4 text-center">
                 <div className="card bg-light text-black shadow d-inline-block text-left" style={{ width:"150px" }}>
                   <div className="card-body">
