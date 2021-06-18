@@ -17,6 +17,7 @@ import CompletedOrders from "../Admin/Orders/CompletedOrders";
 import OnProcessOrders from "../Admin/Orders/OnProcessOrders";
 import PendingOrders from "../Admin/Orders/PendingOrders";
 import Table from "../Admin/Table/Table";
+import Reservation from "../Admin/Reservation/Reservation";
 
 export default function App1() {
   return (
@@ -59,6 +60,11 @@ export default function App1() {
             <Table />
           </Route>
 
+          <Route path="/reservation">
+            <Reservation />
+          </Route>
+
+          
           <Route path="/">
             <Dashboard />
           </Route>

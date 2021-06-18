@@ -10371,3 +10371,13 @@ a:hover{
 .modal input, .modal textarea{
   cursor: text;
 }
+
+/* 
+.table-card{
+  background-image: url("../img/table.jpg");
+  background-repeat: no-repeat;
+  color: black;
+}
+.table-card *{
+  color: white;
+} */
