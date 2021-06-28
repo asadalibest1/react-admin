@@ -192,14 +192,55 @@ export default function Sidebar() {
           </Link>
         </li>
 
-            {/* Report */}
-        <li className="nav-item">
-          <Link id="Link" to="/">
-            <a className="nav-link" href="#">
-              <i className="fas fa-fw fa-tachometer-alt"></i>
-              <span>Report</span>
-            </a>
-          </Link>
+
+
+            {/* Orders */}
+            <li className="nav-item">
+          <a
+            className="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseReports"
+            aria-expanded="true"
+            aria-controls="collapseReports"
+          >
+            <i className="fas fa-fw fa-cog"></i>
+            <span>Reports</span>
+          </a>
+          <div
+            id="collapseReports"
+            className="collapse"
+            aria-labelledby="headingTwo"
+            data-parent="#accordionSidebar"
+          >
+            <div className="bg-white py-2 collapse-inner rounded">
+              <h6 className="collapse-header">Reports</h6>
+
+              <Link id="Link" to="/all-reports">
+                <a className="collapse-item" href="">
+                All Reports
+                </a>
+              </Link>
+
+              <Link id="Link" to="/employees-reports">
+                <a className="collapse-item" href="">
+                Employees Reports
+                </a>
+              </Link>
+
+              <Link id="Link" to="/deliveries-reports">
+                <a className="collapse-item" href="">
+                Deliveries Reports
+                </a>
+              </Link>
+
+              <Link id="Link" to="/errors-reports">
+                <a className="collapse-item" href="">
+                Website Error Reports
+                </a>
+              </Link>
+            </div>
+          </div>
         </li>
         
         {/* <!-- Divider --> */}

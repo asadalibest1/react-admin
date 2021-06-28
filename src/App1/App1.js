@@ -19,6 +19,11 @@ import PendingOrders from "../Admin/Orders/PendingOrders";
 import Table from "../Admin/Table/Table";
 import Reservation from "../Admin/Reservation/Reservation";
 
+import AllReports from "../Admin/Reports/All";
+import Delivery from "../Admin/Reports/Delivery";
+import Employee from "../Admin/Reports/Employee";
+import WebsiteErr from "../Admin/Reports/WebsiteErr";
+
 export default function App1() {
   return (
 
@@ -64,6 +69,22 @@ export default function App1() {
             <Reservation />
           </Route>
 
+          {/* Reports */}
+          <Route path="/all-reports">
+            <AllReports />
+          </Route>
+
+          <Route path="/employees-reports">
+            <Employee />
+          </Route>
+          
+          <Route path="/deliveries-reports">
+            <Delivery />
+          </Route>
+          
+          <Route path="/errors-reports">
+            <WebsiteErr/>
+          </Route>
           
           <Route path="/">
             <Dashboard />
