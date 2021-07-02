@@ -4,9 +4,11 @@ import React from "react";
 import logo from "../img/logo.png"
 // import * as $ from "jquery";
 // window.$ = window.jQuery = jQuery;
-import { Link } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 
 export default function Sidebar() {
+  let { path, url } = useRouteMatch();
+
   const [sidebartoggle, SetsidebarToggle] = React.useState(false);
 
   function sidebarToggle() {
@@ -164,7 +166,7 @@ export default function Sidebar() {
 
             {/* Table */}
             <li className="nav-item">
-          <Link id="Link" to="/setting-table">
+          <Link id="Link" to={`${url}/setting-table`}>
             <a className="nav-link" href="#">
               <i className="fas fa-fw fa-tachometer-alt"></i>
               <span>Table</span>

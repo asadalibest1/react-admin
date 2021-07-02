@@ -208,7 +208,7 @@ export default function Dashboard() {
                   </div>
                 </div>
               </div>
-              <div className="card-body mx-3" style={{ height: "100% !important" }}>
+              <div className="card-body mx-1" style={{ height: "100% !important" }}>
                 <div className="myChart-pie chart-pie mb-0">
                   {/* <canvas id="myPieChart"></canvas> */}
                   <RevenueSources />

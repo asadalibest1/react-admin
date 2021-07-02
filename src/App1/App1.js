@@ -2,8 +2,16 @@ import React from "react";
 // import { Helmet } from "react-helmet";
 
 import "../vendor/fontawesome-free/css/all.min.css";
-import "../css/fonts_googleapis.css";
-import "../css/admin2.css";
+import "../css/fonts.css";
+import "../css/style.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { AuthProvider } from "../contexts/AuthContext";
+
+import PrivateRoute from "../Admin/PrivateRoute/PrivateRoute";
+import Login from "../Admin/Login/Login";
+import Register from "../Admin/Register/Register";
+import ForgotPassword from "../Admin/ForgotPassword/ForgotPassword";
+
 
 import Dashboard from "../Admin/dashboard";
 import Sidebar from "../Admin/Sidebar";
@@ -12,7 +20,6 @@ import Admins from "../Admin/Management/Admins";
 import Customers from "../Admin/Management/Customers";
 import AllOrders from "../Admin/Orders/AllOrders";
 
-import { Switch, Route } from "react-router-dom";
 import CompletedOrders from "../Admin/Orders/CompletedOrders";
 import OnProcessOrders from "../Admin/Orders/OnProcessOrders";
 import PendingOrders from "../Admin/Orders/PendingOrders";
@@ -24,7 +31,8 @@ import Delivery from "../Admin/Reports/Delivery";
 import Employee from "../Admin/Reports/Employee";
 import WebsiteErr from "../Admin/Reports/WebsiteErr";
 
-export default function App1() {
+
+function Rout() {
   return (
 
     <div className="row">
@@ -85,15 +93,12 @@ export default function App1() {
           <Route path="/errors-reports">
             <WebsiteErr/>
           </Route>
-          
-          <Route path="/">
-            <Dashboard />
-          </Route>
 
+          {/* <Route path="/"> */}
+            <Dashboard />
+          {/* </Route> */}
 
           </Switch>
-
-
 
         </div>
       </div>
@@ -101,3 +106,26 @@ export default function App1() {
     </div>
   );
 }
+
+
+export default function App1() {
+  return (
+    <div>
+      
+      <Router>
+          <AuthProvider>
+            <Switch>
+              <PrivateRoute exact path="/" component={Rout} />
+              {/* <PrivateRoute path="/update-profile" component={UpdateProfile} /> */}
+              <Route path="/register" component={Register} />
+              <Route path="/login" component={Login} />
+              <Route path="/forgot-password" component={ForgotPassword} />
+            </Switch>
+          </AuthProvider>
+        </Router>
+
+
+    </div>
+  )
+}
+
