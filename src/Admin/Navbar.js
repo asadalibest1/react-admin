@@ -1,12 +1,54 @@
-import React from "react";
+import React, { useState } from "react"
 import undraw_profile_1 from "../img/undraw_profile_1.svg";
 import undraw_profile_2 from "../img/undraw_profile_2.svg";
 import undraw_profile_3 from "../img/undraw_profile_3.svg";
 import undraw_profile from "../img/undraw_profile.svg";
+
+import { useAuth } from "../contexts/AuthContext"
+import { Link, useHistory } from "react-router-dom"
+import Spinner from "./Spinner/Spinner";
+
+
 export default function Navbar() {
+  
+  const [sidebartoggle, SetsidebarToggle] = React.useState(true);
+  const [error, setError] = useState("")
+  const { currentUser, logout, currentUserData } = useAuth()
+  const history = useHistory()
+
+  async function handleLogout() {
+    setError("")
+
+    try {
+      await logout()
+      history.push("/login")
+    } catch {
+      setError("Failed to log out")
+    }
+  }
+
+  console.log(currentUserData)
+
+  
+  if (error) alert(error);
+
+React.useEffect(()=> {
+ 
+  if(sidebartoggle){
+    document.getElementById('page-top').className = "sidebar-toggled"
+    document.getElementById('accordionSidebar').className += " toggled";
+  }else{
+  document.getElementById('page-top').classList.remove("sidebar-toggled")
+  document.getElementById('accordionSidebar').classList.remove("toggled")
+}
+} )
+
+
+
   return (
     <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
       <button
+      onClick={()=> SetsidebarToggle(!sidebartoggle)}
         id="sidebarToggleTop"
         className="btn btn-link d-md-none rounded-circle mr-3"
       >
@@ -237,9 +279,20 @@ export default function Navbar() {
             aria-expanded="false"
           >
             <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-              Douglas McGee
+              {currentUser && currentUserData.name}
             </span>
-            <img className="img-profile rounded-circle" src={undraw_profile} />
+       <div className={`rounded-circle overflow-hidden ${currentUserData.dp ? " border-primary" : "border"} d-flex justify-content-center align-items-center`}
+            style={{ height: "40px", width: "40px" }}>
+
+            {
+              (currentUserData.dp)
+                ?
+              <img style={{ width: "100%" }} src={ currentUserData.dp } />
+              :
+                <Spinner />
+            }
+
+       </div>
           </a>
           <div
             className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -261,8 +314,9 @@ export default function Navbar() {
             <a
               className="dropdown-item"
               href="#"
-              data-toggle="modal"
-              data-target="#logoutModal"
+              // data-toggle="modal"
+              // data-target="#logoutModal"
+              onClick={handleLogout}
             >
               <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
               Logout

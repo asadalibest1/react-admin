@@ -1,8 +1,9 @@
 import React from 'react'
+import Image from '../../img/forgotPassword.jpg'
 
 export default function ForgetPassword() {
     return (
-        <div className="bg-gradient-primary">
+        <div className="bg-gradient-primary d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
             <div className="container">
 
                 {/* <!-- Outer Row --> */}
@@ -14,7 +15,9 @@ export default function ForgetPassword() {
                             <div className="card-body p-0">
                                 {/* <!-- Nested Row within Card Body --> */}
                                 <div className="row">
-                                    <div className="col-lg-6 d-none d-lg-block bg-password-image"></div>
+                                    <div className="col-lg-6 d-none d-lg-block bg-password-image"
+                                    style={{ backgroundImage: `url(${Image})` }}
+                                    ></div>
                                     <div className="col-lg-6">
                                         <div className="p-5">
                                             <div className="text-center">

@@ -61,7 +61,7 @@ export default function CustomersTable() {
         customerName: "Donna Hubber",
         tableNo: "5",
         NoOfPerson: "12",
-        fromTo: <div><span className="text-danger">03:05 05/07/2020</span> / 04:05 05/07/2020</div>,
+        fromTo: <div><div className="text-danger">03:05 05/07/2020</div> / 04:05 05/07/2020</div>,
         date: "04/07/2020",
         Action: <Action />,
       },

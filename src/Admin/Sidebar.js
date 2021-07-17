@@ -7,7 +7,7 @@ import logo from "../img/logo.png"
 import { Link, useRouteMatch } from "react-router-dom";
 
 export default function Sidebar() {
-  let { path, url } = useRouteMatch();
+  let { url } = useRouteMatch();
 
   const [sidebartoggle, SetsidebarToggle] = React.useState(false);
 
@@ -33,7 +33,7 @@ export default function Sidebar() {
         {/* <!-- Sidebar - Brand --> */}
         <a
           className="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index.html"
+          href="/dashboard"
         >
           <div className="sidebar-brand-icon" style={{ width:"100px", height:"65px" }}>
             {/* <i className="fas fa-laugh-wink"></i> */}
@@ -49,7 +49,7 @@ export default function Sidebar() {
 
         {/* Dashboard */}
         <li className="nav-item active">
-          <Link id="Link" to="/">
+          <Link id="Link" to="/dashboard">
             <a className="nav-link" href="#">
               <i className="fas fa-fw fa-tachometer-alt"></i>
               <span>Dashboard</span>
@@ -89,25 +89,25 @@ export default function Sidebar() {
             <div className="bg-white py-2 collapse-inner rounded">
               <h6 className="collapse-header">Custom Components:</h6>
 
-              <Link id="Link" to="/all-orders">
+              <Link id="Link" to={`${url}/all-orders`}>
                 <a className="collapse-item" href="">
                 All Orders
                 </a>
               </Link>
 
-              <Link id="Link" to="/pending-orders">
+              <Link id="Link" to={`${url}/pending-orders`}>
                 <a className="collapse-item" href="">
                 Pending Orders
                 </a>
               </Link>
 
-              <Link id="Link" to="/on-process-orders">
+              <Link id="Link" to={`${url}/on-process-orders`}>
                 <a className="collapse-item" href="">
                 On Process Orders
                 </a>
               </Link>
 
-              <Link id="Link" to="/completed-orders">
+              <Link id="Link" to={`${url}/completed-orders`}>
                 <a className="collapse-item" href="">
                 Completed Orders
                 </a>
@@ -138,13 +138,13 @@ export default function Sidebar() {
             <div className="bg-white py-2 collapse-inner rounded">
               <h6 className="collapse-header">Custom Components:</h6>
 
-              <Link id="Link" to="/admin">
+              <Link id="Link" to={`${url}/admin`}>
                 <a className="collapse-item" href="buttons.html">
                     Admins 
                 </a>
               </Link>
 
-              <Link id="Link" to="/customers">
+              <Link id="Link" to={`${url}/customers`}>
                 <a className="collapse-item" href="#">
                   Customers
                 </a>
@@ -156,7 +156,7 @@ export default function Sidebar() {
 
             {/* Reservation */}
             <li className="nav-item">
-          <Link id="Link" to="/reservation">
+          <Link id="Link" to={`${url}/reservation`}>
             <a className="nav-link" href="#">
               <i className="fas fa-fw fa-tachometer-alt"></i>
               <span>Reservation</span>
@@ -218,25 +218,25 @@ export default function Sidebar() {
             <div className="bg-white py-2 collapse-inner rounded">
               <h6 className="collapse-header">Reports</h6>
 
-              <Link id="Link" to="/all-reports">
+              <Link id="Link" to={`${url}/all-reports`}>
                 <a className="collapse-item" href="">
                 All Reports
                 </a>
               </Link>
 
-              <Link id="Link" to="/employees-reports">
+              <Link id="Link" to={`${url}/employees-reports`}>
                 <a className="collapse-item" href="">
                 Employees Reports
                 </a>
               </Link>
 
-              <Link id="Link" to="/deliveries-reports">
+              <Link id="Link" to={`${url}/deliveries-reports`}>
                 <a className="collapse-item" href="">
                 Deliveries Reports
                 </a>
               </Link>
 
-              <Link id="Link" to="/errors-reports">
+              <Link id="Link" to={`${url}/errors-reports`}>
                 <a className="collapse-item" href="">
                 Website Error Reports
                 </a>

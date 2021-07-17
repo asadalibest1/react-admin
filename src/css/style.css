@@ -9938,17 +9938,18 @@ border: 0.20rem solid #f6c23e !important;
   }
 }
 .bg-login-image {
-  background: url(https://source.unsplash.com/K4mSJ7kc0As/600x800);
+  /* background: url(https://source.unsplash.com/K4mSJ7kc0As/600x800); */
+  
   background-position: center;
   background-size: cover;
 }
 .bg-register-image {
-  background: url(https://source.unsplash.com/Mv9hjnEUHR4/600x800);
+  /* background: url(https://source.unsplash.com/Mv9hjnEUHR4/600x800); */
   background-position: center;
   background-size: cover;
 }
 .bg-password-image {
-  background: url(https://source.unsplash.com/oWTW-jNGl9I/600x800);
+  /* background: url(https://source.unsplash.com/oWTW-jNGl9I/600x800); */
   background-position: center;
   background-size: cover;
 }
@@ -10370,6 +10371,19 @@ a:hover{
 
 .modal input, .modal textarea{
   cursor: text;
+}
+
+.fileToUpload{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.fileToUpload:hover{
+  cursor: pointer;
 }
 
 /* 

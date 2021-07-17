@@ -2,9 +2,12 @@ import React from "react";
 import OrdersTable from "./Tables/AllOrders";
 // import * as $ from "jquery";
 // import noImagePreview from "../../img/noImagePreview.png"
+// import { AuthProvider, useAuth } from "../../contexts/AuthContext";
 
 export default function AllOrders() {
 
+//   const { currentUser } = useAuth()
+// console.log(currentUser)
 //   const [ShowPassword, setShowPassword] = React.useState(false)
 
     return (

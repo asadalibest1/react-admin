@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react"
-import { auth } from "../firebase"
+import { auth, firestore } from "../firebase"
 
 const AuthContext = React.createContext()
 
@@ -8,12 +8,41 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState()
+  const [currentUserData, setCurrentUserData] = useState('')
+  const [currentUser, setCurrentUser] = useState('')
   const [loading, setLoading] = useState(true)
+
+  const users = firestore.collection("/users");
+
+  function addUsersId(id, email, password) {
+
+    users.doc(id).set({
+      email,
+      password
+    })
+      .then(function (docRef) {
+        console.log("Success: id created: ", docRef);
+      })
+      .catch(function (error) {
+        console.error("Error: id created: ", error);
+      });  
+  }
+
 
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password)
+      .then((res) => {
+      addUsersId(
+          res.user.uid,
+          res.user.email,
+          password
+          )
+
+      })
   }
+  // Created On
+  // Last Login
+  // IP Address	
 
   function login(email, password) {
     return auth.signInWithEmailAndPassword(email, password)
@@ -36,7 +65,24 @@ export function AuthProvider({ children }) {
   }
 
   useEffect(() => {
+
     const unsubscribe = auth.onAuthStateChanged(user => {
+
+      if (user) {
+        // firestore
+        //   .collection("users").doc(user.uid)
+        //   .get().then((doc) => {
+
+        //     setCurrentUserData(doc.data())
+
+        //   })
+        firestore
+        .collection("users").doc(user.uid)
+        .onSnapshot((doc) => {
+            // console.log("Current data: ", doc.data());
+            setCurrentUserData(doc.data())
+        });
+      }
       setCurrentUser(user)
       setLoading(false)
     })
@@ -46,6 +92,7 @@ export function AuthProvider({ children }) {
 
   const value = {
     currentUser,
+    currentUserData,
     login,
     signup,
     logout,

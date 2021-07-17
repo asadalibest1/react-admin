@@ -1,7 +1,10 @@
 import firebase from "firebase/app"
 import "firebase/auth"
+import "firebase/performance";
+import "firebase/firestore";
+import "firebase/storage";
 
-const app = firebase.initializeApp({
+firebase.initializeApp({
   apiKey: "AIzaSyAjxD8Vzqt1OKVvT-VkGMXWXdnvG0u-maQ",
   authDomain: "resmentem.firebaseapp.com",
   projectId: "resmentem",
@@ -9,9 +12,6 @@ const app = firebase.initializeApp({
   messagingSenderId: "620109555242",
   appId: "1:620109555242:web:28ea927873bf8cacf10553"
 })
-
-
-
 
 // const app = firebase.initializeApp({
 //   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -23,5 +23,7 @@ const app = firebase.initializeApp({
 //   appId: process.env.REACT_APP_FIREBASE_APP_ID
 // })
 
-export const auth = app.auth()
-export default app
+export const app = firebase;
+export const firestore = firebase.firestore();
+export const auth = firebase.auth();
+export const storage = firebase.storage();
