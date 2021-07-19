@@ -1,46 +1,45 @@
 import React, { useRef, useState } from "react"
 import { useAuth } from "../../contexts/AuthContext"
-import { Link, useHistory, Redirect } from "react-router-dom"
+import { useHistory, Redirect } from "react-router-dom"
 import Image from "../../img/register.jpg"
 import { app, firestore, storage } from "../../firebase"
 import publicIp from "react-public-ip"
 import Spinner from "../Spinner/Spinner"
+
 export default function UpdateAccount() {
+
+    const { currentUser } = useAuth()
+
+    const [error, setError] = useState("")
+    const [loading, setLoading] = useState(false)
+    const [profileImage, setProfileImage] = useState(null)
+    const history = useHistory()
+
 
     let firstNameRef = useRef()
     let lastNameRef = useRef()
     let phoneRef = useRef()
     let addressRef = useRef()
 
-    const [error, setError] = useState("")
-    const [loading, setLoading] = useState(false)
-    let [profileImage, setProfileImage] = useState(null)
-    const [image, setImage] = useState(null)
-
-    const history = useHistory()
-
-    const { currentUser, currentUserData } = useAuth()
-    const users = firestore.collection("/users");
 
 
-            // React.useEffect(()=>{
+    if(!currentUser){
+        return <Redirect to="/login" />
+    }
 
 
-                if(currentUserData.dp)
-                profileImage = currentUserData.dp
-            
-                // firstNameRef.current.value = currentUserData.name
-                // // lastNameRef.current.value = currentUserData.
-                // phoneRef.current.value = currentUserData.phone
-                // addressRef.current.value = currentUserData.address
 
-            // },[])
+    // if(currentUserData){
+    //         profileImage = currentUserData.dp
+    //         firstNameRef.current.value = currentUserData.firstName
+    //         lastNameRef.current.value = currentUserData.lastName
+    //         phoneRef.current.value = currentUserData.phone
+    //         addressRef.current.value = currentUserData.address
+    // }
 
 
 
 
-
-    var imageUrl;
     let ipv4;
 
     publicIp.v4()
@@ -54,13 +53,16 @@ export default function UpdateAccount() {
 
         let value = {
             dp: profileImage,
-            name: firstNameRef.current.value + ' ' + lastNameRef.current.value,
+            firstName: firstNameRef.current.value,
+            lastName: lastNameRef.current.value,
             phone: phoneRef.current.value,
             address: addressRef.current.value,
             createdOn: app.firestore.FieldValue.serverTimestamp(),
             lastLogin: app.firestore.FieldValue.serverTimestamp(),
             ip: ipv4,
         }
+
+        const users = firestore.collection("/users");
 
         users.doc(currentUser.uid).update(value)
             .then(res => {
@@ -137,8 +139,6 @@ export default function UpdateAccount() {
 
     }
 
-    console.log(profileImage)
-
     return (
         <div className="bg-gradient-primary d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
             <div class="container">
@@ -177,7 +177,7 @@ export default function UpdateAccount() {
                                                         (!profileImage) ?
 
                                                             <Spinner />
-                                                        :
+                                                            :
 
                                                             <img
                                                                 className="rounded-circle p-1 border border-default"
@@ -187,7 +187,7 @@ export default function UpdateAccount() {
                                                 }
 
 
-                                                <input type="file" className="fileToUpload" onChange={handleChange} multiple accept=".jpg, .png" /> */}
+                                                <input type="file" className="fileToUpload" onChange={handleChange} multiple accept=".jpg, .png" />
                                             </span>
 
                                         </div>

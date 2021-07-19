@@ -279,7 +279,7 @@ React.useEffect(()=> {
             aria-expanded="false"
           >
             <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-              {currentUser && currentUserData.name}
+              {currentUser && currentUserData.firstName +" "+ currentUserData.lastName}
             </span>
        <div className={`rounded-circle overflow-hidden ${currentUserData.dp ? " border-primary" : "border"} d-flex justify-content-center align-items-center`}
             style={{ height: "40px", width: "40px" }}>

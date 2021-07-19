@@ -40,9 +40,6 @@ export function AuthProvider({ children }) {
 
       })
   }
-  // Created On
-  // Last Login
-  // IP Address	
 
   function login(email, password) {
     return auth.signInWithEmailAndPassword(email, password)
