@@ -9,38 +9,61 @@ import { Link, useRouteMatch } from "react-router-dom";
 export default function Sidebar() {
   let { url } = useRouteMatch();
 
-  const [sidebartoggle, SetsidebarToggle] = React.useState(false);
+  let getState;
+ 
+  setInterval(() => {
+      getState = localStorage.getItem('sidebartoggle');    
+    }, 300);
 
-  function sidebarToggle() {
-    SetsidebarToggle(!sidebartoggle);
+    const [sidebartoggle, SetsidebarToggle] = React.useState(getState);
+
+    React.useEffect(()=>{
+      SetsidebarToggle(getState)
+    },[getState])
+
+  
+
+
+  function toggleCollapse(name) {
+    document.querySelector('.nav-link').classList.remove("collapsed")
+    document.querySelector('#collapse' + name).classList.remove("show")
+
   }
 
+
+  function sidebartoggleFn() {
+    const getItem = localStorage.getItem('sidebartoggle');
+
+    if (getItem == null) {
+      localStorage.setItem('sidebartoggle', "true") 
+      return SetsidebarToggle(true)
+       }
+
+    localStorage.removeItem('sidebartoggle')
+    SetsidebarToggle(null)
+  }
+
+  console.log(sidebartoggle)
+  
   return (
     <div className="px-2">
-      {/* <Helmet>
-        <script src="../vendor/js/sb-admin-2.min.js"></script>
-
-        </Helmet> */}
-
       <ul
         className={
           "mynavbar-nav navbar-nav bg-gradient-primary sidebar sidebar-dark " +
           (sidebartoggle ? "toggled" : "") +
           " accordion h-100"
-        }
-        id="accordionSidebar"
-      >
+        } id="accordionSidebar">
         {/* <!-- Sidebar - Brand --> */}
         <a
           className="sidebar-brand d-flex align-items-center justify-content-center"
           href="/dashboard"
         >
-          <div className="sidebar-brand-icon" style={{ width:"100px", height:"65px" }}>
+          <div className="sidebar-brand-icon" style={{ width: "100px", height: "65px" }}>
             {/* <i className="fas fa-laugh-wink"></i> */}
-            <img src={logo} className="w-100 h-100" alt="logo"/>
+            <img src={logo} className="w-100 h-100" alt="logo" />
           </div>
           <div className="sidebar-brand-text mx-3">
-          Resmantem
+            Resmantem
           </div>
         </a>
 
@@ -57,6 +80,7 @@ export default function Sidebar() {
           </Link>
         </li>
 
+
         {/* Products */}
         <li className="nav-item">
           <Link id="Link" to="/">
@@ -67,11 +91,10 @@ export default function Sidebar() {
           </Link>
         </li>
 
-            {/* Orders */}
+        {/* Orders */}
         <li className="nav-item">
           <a
             className="nav-link collapsed"
-            href="#"
             data-toggle="collapse"
             data-target="#collapseOrders"
             aria-expanded="true"
@@ -87,29 +110,37 @@ export default function Sidebar() {
             data-parent="#accordionSidebar"
           >
             <div className="bg-white py-2 collapse-inner rounded">
-              <h6 className="collapse-header">Custom Components:</h6>
+              <h6 className="collapse-header">Orders</h6>
 
               <Link id="Link" to={`${url}/all-orders`}>
-                <a className="collapse-item" href="">
-                All Orders
+                <a className="collapse-item"
+                  onClick={() => toggleCollapse('Orders')}
+                >
+                  All Orders
                 </a>
               </Link>
 
               <Link id="Link" to={`${url}/pending-orders`}>
-                <a className="collapse-item" href="">
-                Pending Orders
+                <a className="collapse-item"
+                  onClick={() => toggleCollapse('Orders')}
+                >
+                  Pending Orders
                 </a>
               </Link>
 
               <Link id="Link" to={`${url}/on-process-orders`}>
-                <a className="collapse-item" href="">
-                On Process Orders
+                <a className="collapse-item"
+                  onClick={() => toggleCollapse('Orders')}
+                >
+                  On Process Orders
                 </a>
               </Link>
 
               <Link id="Link" to={`${url}/completed-orders`}>
-                <a className="collapse-item" href="">
-                Completed Orders
+                <a className="collapse-item"
+                  onClick={() => toggleCollapse('Orders')}
+                >
+                  Completed Orders
                 </a>
               </Link>
             </div>
@@ -119,8 +150,7 @@ export default function Sidebar() {
         {/* Account Management */}
         <li className="nav-item">
           <a
-            className="nav-link collapsed"
-            href="#"
+            className="nav-link"
             data-toggle="collapse"
             data-target="#collapseAdmin"
             aria-expanded="true"
@@ -136,16 +166,16 @@ export default function Sidebar() {
             data-parent="#accordionSidebar"
           >
             <div className="bg-white py-2 collapse-inner rounded">
-              <h6 className="collapse-header">Custom Components:</h6>
+              <h6 className="collapse-header">Manage Account:</h6>
 
               <Link id="Link" to={`${url}/admin`}>
-                <a className="collapse-item" href="buttons.html">
-                    Admins 
+                <a className="collapse-item" href="javascript:void(0)">
+                  Admins
                 </a>
               </Link>
 
               <Link id="Link" to={`${url}/customers`}>
-                <a className="collapse-item" href="#">
+                <a className="collapse-item">
                   Customers
                 </a>
               </Link>
@@ -154,8 +184,8 @@ export default function Sidebar() {
           </div>
         </li>
 
-            {/* Reservation */}
-            <li className="nav-item">
+        {/* Reservation */}
+        <li className="nav-item">
           <Link id="Link" to={`${url}/reservation`}>
             <a className="nav-link" href="#">
               <i className="fas fa-fw fa-tachometer-alt"></i>
@@ -164,8 +194,8 @@ export default function Sidebar() {
           </Link>
         </li>
 
-            {/* Table */}
-            <li className="nav-item">
+        {/* Table */}
+        <li className="nav-item">
           <Link id="Link" to={`${url}/setting-table`}>
             <a className="nav-link" href="#">
               <i className="fas fa-fw fa-tachometer-alt"></i>
@@ -174,7 +204,7 @@ export default function Sidebar() {
           </Link>
         </li>
 
-            {/* Settings */}
+        {/* Settings */}
         <li className="nav-item">
           <Link id="Link" to="/">
             <a className="nav-link" href="#">
@@ -184,7 +214,7 @@ export default function Sidebar() {
           </Link>
         </li>
 
-            {/* Mail */}
+        {/* Mail */}
         <li className="nav-item">
           <Link id="Link" to="/">
             <a className="nav-link" href="#">
@@ -196,8 +226,8 @@ export default function Sidebar() {
 
 
 
-            {/* Orders */}
-            <li className="nav-item">
+        {/* Orders */}
+        <li className="nav-item">
           <a
             className="nav-link collapsed"
             href="#"
@@ -219,32 +249,32 @@ export default function Sidebar() {
               <h6 className="collapse-header">Reports</h6>
 
               <Link id="Link" to={`${url}/all-reports`}>
-                <a className="collapse-item" href="">
-                All Reports
+                <a className="collapse-item">
+                  All Reports
                 </a>
               </Link>
 
               <Link id="Link" to={`${url}/employees-reports`}>
-                <a className="collapse-item" href="">
-                Employees Reports
+                <a className="collapse-item">
+                  Employees Reports
                 </a>
               </Link>
 
               <Link id="Link" to={`${url}/deliveries-reports`}>
-                <a className="collapse-item" href="">
-                Deliveries Reports
+                <a className="collapse-item">
+                  Deliveries Reports
                 </a>
               </Link>
 
               <Link id="Link" to={`${url}/errors-reports`}>
-                <a className="collapse-item" href="">
-                Website Error Reports
+                <a className="collapse-item">
+                  Website Error Reports
                 </a>
               </Link>
             </div>
           </div>
         </li>
-        
+
         {/* <!-- Divider --> */}
         <hr className="sidebar-divider" />
 
@@ -286,7 +316,6 @@ export default function Sidebar() {
         <li className="nav-item">
           <a
             className="nav-link collapsed"
-            href="#"
             data-toggle="collapse"
             data-target="#collapseUtilities"
             aria-expanded="true"
@@ -391,7 +420,7 @@ export default function Sidebar() {
           <button
             className="rounded-circle border-0"
             id="sidebarToggle"
-            onClick={sidebarToggle}
+            onClick={sidebartoggleFn}
           ></button>
         </div>
       </ul>

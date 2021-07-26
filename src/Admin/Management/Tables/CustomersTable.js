@@ -4,6 +4,7 @@ import CustomersAction from "./Actions/CustomersAction";
 import Avatar from "./Avatar/Avatar";
 import { useAuth } from "../../../contexts/AuthContext"
 import { firestore } from "../../../firebase"
+import TableSpinner from "../../Spinner/TableSpinner/TableSpinner";
 
 
 export default function CustomersTable() {
@@ -115,14 +116,22 @@ console.log(data)
   };
 
   return (
-    <>  
+    <>
+
+    {
+      (!data.length)
+      ?
+      <TableSpinner />
+      :
       <MDBDataTableV5
-        hover
-        entriesOptions={[5, 20, 25]}
-        entries={5}
-        pagesAmount={4}
-        data={usersData}
-      />
+      hover
+      entriesOptions={[5, 20, 25]}
+      entries={5}
+      pagesAmount={4}
+      data={usersData}
+    />
+    }
+     
     </>
   );
 }

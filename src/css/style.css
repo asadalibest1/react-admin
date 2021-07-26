@@ -3762,6 +3762,7 @@ input[type="submit"].btn-block {
 .nav-link:focus,
 .nav-link:hover {
   text-decoration: none;
+  cursor: pointer;
 }
 .nav-link.disabled {
   color: #858796;
@@ -9340,7 +9341,7 @@ border: 0.20rem solid #f6c23e !important;
 }
 .topbar #sidebarToggleTop {
   height: 2.5rem;
-  width: 2.5rem;
+  width: 2.5rem;  
 }
 .topbar #sidebarToggleTop:hover {
   background-color: #eaecf4;
@@ -9492,10 +9493,11 @@ border: 0.20rem solid #f6c23e !important;
   border-radius: 0.35rem;
   box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
 }
-.sidebar .nav-item .collapsing {
+/* .sidebar .nav-item .collapsing {
   display: none;
   transition: none;
-}
+} */
+
 .sidebar .nav-item .collapse .collapse-inner,
 .sidebar .nav-item .collapsing .collapse-inner {
   padding: 0.5rem 0;
@@ -9526,6 +9528,8 @@ border: 0.20rem solid #f6c23e !important;
 .sidebar .nav-item .collapse .collapse-inner .collapse-item:hover,
 .sidebar .nav-item .collapsing .collapse-inner .collapse-item:hover {
   background-color: #eaecf4;
+  cursor: pointer;
+
 }
 .sidebar .nav-item .collapse .collapse-inner .collapse-item:active,
 .sidebar .nav-item .collapsing .collapse-inner .collapse-item:active {

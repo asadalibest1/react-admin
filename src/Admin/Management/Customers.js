@@ -2,6 +2,7 @@ import React from "react";
 import CustomersTable from "./Tables/CustomersTable";
 import noImagePreview from "../../img/noImagePreview.png"
 import * as $ from "jquery";
+// import TableSpinner from "../Spinner/TableSpinner/TableSpinner";
 
 export default function AdminUsers() {
 
@@ -59,11 +60,17 @@ const [ShowPassword, setShowPassword] = React.useState(false)
           <div class="card-body">
             <div class={(window.innerWidth < 1000) ? "table-responsive" : ""}>
 
+
               <CustomersTable />
 
+
             </div>
+
           </div>
         </div>
+        {/* <TableSpinner /> */}
+
+
       </div>
 
 

@@ -10,8 +10,7 @@ import Spinner from "./Spinner/Spinner";
 
 
 export default function Navbar() {
-  
-  const [sidebartoggle, SetsidebarToggle] = React.useState(true);
+
   const [error, setError] = useState("")
   const { currentUser, logout, currentUserData } = useAuth()
   const history = useHistory()
@@ -29,26 +28,37 @@ export default function Navbar() {
 
   console.log(currentUserData)
 
-  
+
   if (error) alert(error);
 
-React.useEffect(()=> {
- 
-  if(sidebartoggle){
-    document.getElementById('page-top').className = "sidebar-toggled"
-    document.getElementById('accordionSidebar').className += " toggled";
-  }else{
-  document.getElementById('page-top').classList.remove("sidebar-toggled")
-  document.getElementById('accordionSidebar').classList.remove("toggled")
-}
-} )
+  // React.useEffect(()=> {
 
+  //   if(sidebartoggle){
+  //     document.getElementById('page-top').className = "sidebar-toggled"
+  //     document.getElementById('accordionSidebar').className += " toggled";
+  //   }else{
+  //   document.getElementById('page-top').classList.remove("sidebar-toggled")
+  //   document.getElementById('accordionSidebar').classList.remove("toggled")
+  // }
+  // } )
+
+
+
+  function sidebartoggleFn() {
+    const getItem = localStorage.getItem('sidebartoggle');
+
+    if (getItem == null) {
+      return localStorage.setItem('sidebartoggle', "true")
+    }
+
+    localStorage.removeItem('sidebartoggle')
+  }
 
 
   return (
     <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
       <button
-      onClick={()=> SetsidebarToggle(!sidebartoggle)}
+        onClick={sidebartoggleFn}
         id="sidebarToggleTop"
         className="btn btn-link d-md-none rounded-circle mr-3"
       >
@@ -279,20 +289,20 @@ React.useEffect(()=> {
             aria-expanded="false"
           >
             <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-              {currentUser && currentUserData.firstName +" "+ currentUserData.lastName}
+              {currentUser && currentUserData.firstName + " " + currentUserData.lastName}
             </span>
-       <div className={`rounded-circle overflow-hidden ${currentUserData.dp ? " border-primary" : "border"} d-flex justify-content-center align-items-center`}
-            style={{ height: "40px", width: "40px" }}>
+            <div className={`rounded-circle overflow-hidden ${currentUserData.dp ? " border-primary" : "border"} d-flex justify-content-center align-items-center`}
+              style={{ height: "40px", width: "40px" }}>
 
-            {
-              (currentUserData.dp)
-                ?
-              <img style={{ width: "100%" }} src={ currentUserData.dp } />
-              :
-                <Spinner />
-            }
+              {
+                (currentUserData.dp)
+                  ?
+                  <img style={{ width: "100%" }} src={currentUserData.dp} />
+                  :
+                  <Spinner />
+              }
 
-       </div>
+            </div>
           </a>
           <div
             className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
