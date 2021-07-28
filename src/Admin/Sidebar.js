@@ -9,19 +9,9 @@ import { Link, useRouteMatch } from "react-router-dom";
 export default function Sidebar() {
   let { url } = useRouteMatch();
 
-  let getState;
- 
-  setInterval(() => {
-      getState = localStorage.getItem('sidebartoggle');    
-    }, 300);
 
-    const [sidebartoggle, SetsidebarToggle] = React.useState(getState);
+    const [sidebartoggle, SetsidebarToggle] = React.useState(false);
 
-    React.useEffect(()=>{
-      SetsidebarToggle(getState)
-    },[getState])
-
-  
 
 
   function toggleCollapse(name) {
@@ -31,19 +21,7 @@ export default function Sidebar() {
   }
 
 
-  function sidebartoggleFn() {
-    const getItem = localStorage.getItem('sidebartoggle');
-
-    if (getItem == null) {
-      localStorage.setItem('sidebartoggle', "true") 
-      return SetsidebarToggle(true)
-       }
-
-    localStorage.removeItem('sidebartoggle')
-    SetsidebarToggle(null)
-  }
-
-  console.log(sidebartoggle)
+  // console.log(sidebartoggle)
   
   return (
     <div className="px-2">
@@ -420,7 +398,7 @@ export default function Sidebar() {
           <button
             className="rounded-circle border-0"
             id="sidebarToggle"
-            onClick={sidebartoggleFn}
+            onClick={() => SetsidebarToggle(!sidebartoggle)}
           ></button>
         </div>
       </ul>

@@ -2,7 +2,6 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import { signInWithGoogle } from "firebase";
 
 import { BrowserRouter as Router } from "react-router-dom";
 

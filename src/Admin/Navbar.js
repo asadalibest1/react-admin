@@ -14,7 +14,7 @@ export default function Navbar() {
   const [error, setError] = useState("")
   const { currentUser, logout, currentUserData } = useAuth()
   const history = useHistory()
-
+  // handleLogout()
   async function handleLogout() {
     setError("")
 
@@ -25,40 +25,53 @@ export default function Navbar() {
       setError("Failed to log out")
     }
   }
-
-  console.log(currentUserData)
+  console.log(currentUser)
 
 
   if (error) alert(error);
 
-  // React.useEffect(()=> {
 
-  //   if(sidebartoggle){
-  //     document.getElementById('page-top').className = "sidebar-toggled"
-  //     document.getElementById('accordionSidebar').className += " toggled";
-  //   }else{
-  //   document.getElementById('page-top').classList.remove("sidebar-toggled")
-  //   document.getElementById('accordionSidebar').classList.remove("toggled")
-  // }
-  // } )
+  const [sidebartoggle, SetsidebarToggle] = React.useState(false);
 
 
+  React.useEffect(()=> {
 
-  function sidebartoggleFn() {
-    const getItem = localStorage.getItem('sidebartoggle');
-
-    if (getItem == null) {
-      return localStorage.setItem('sidebartoggle', "true")
-    }
-
-    localStorage.removeItem('sidebartoggle')
+    if(sidebartoggle){
+      document.getElementById('page-top').className = "sidebar-toggled"
+      document.getElementById('accordionSidebar').className += " toggled";
+    }else{
+    document.getElementById('page-top').classList.remove("sidebar-toggled")
+    document.getElementById('accordionSidebar').classList.remove("toggled")
   }
+  },[sidebartoggle])
+
+
+
+  // function sidebartoggleFn() {
+  //   const getItem = localStorage.getItem('sidebartoggle');
+
+  //   if (getItem == null) {
+  //         localStorage.setItem('sidebartoggle', "true")
+  //         document.getElementById('page-top').classList.remove("sidebar-toggled")
+  //         document.getElementById('accordionSidebar').classList.remove("toggled")
+  //   } else {
+  //         localStorage.removeItem('sidebartoggle')
+  //         document.getElementById('page-top').className = "sidebar-toggled"
+  //         document.getElementById('accordionSidebar').className += " toggled";
+  //   }
+  //   console.log(getItem)
+  // }
+
+
+  // setInterval(() => {
+
+  // }, 2000);
 
 
   return (
     <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
       <button
-        onClick={sidebartoggleFn}
+        onClick={()=>SetsidebarToggle(!sidebartoggle)}
         id="sidebarToggleTop"
         className="btn btn-link d-md-none rounded-circle mr-3"
       >

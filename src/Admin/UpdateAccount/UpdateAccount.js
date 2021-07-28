@@ -8,7 +8,7 @@ import Spinner from "../Spinner/Spinner"
 
 export default function UpdateAccount() {
 
-    const { currentUser } = useAuth()
+    const { currentUser, currentUserData } = useAuth()
 
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
@@ -84,7 +84,7 @@ export default function UpdateAccount() {
 
     // alert(currentUser.uid)
     // }
-    // console.log(currentUser)
+    console.log('currentUserData', currentUserData)
 
 
 

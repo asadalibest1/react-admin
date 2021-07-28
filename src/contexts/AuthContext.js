@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react"
-import { auth, firestore } from "../firebase"
+import { app, auth, firestore } from "../firebase"
 
 const AuthContext = React.createContext()
 
@@ -25,18 +25,55 @@ export function AuthProvider({ children }) {
       })
       .catch(function (error) {
         console.error("Error: id created: ", error);
-      });  
+      });
   }
 
+  function signInWithGoogle() {
+    let googleProvider = new app.auth.GoogleAuthProvider();
+
+    auth.signInWithPopup(googleProvider)
+    .then(() => {
+        console.log("Success: account login and saving...");
+    }).catch((error) => {
+        return console.log(error.message)
+    })
+ }
+ 
+ if(currentUser.displayName !== null ){
+  //  alert(currentUser.displayName)
+ }
+
+// function signInGoogle(id, dp, firstName, email){
+  
+//   let value = {
+//     dp,
+//     firstName,
+//     email,
+//     lastName: "none",
+//     // phone: phoneRef.current.value,
+//     // address: addressRef.current.value,
+//     // createdOn: app.firestore.FieldValue.serverTimestamp(),
+//     // lastLogin: app.firestore.FieldValue.serverTimestamp(),
+//     // ip: ipv4,
+// }
+
+//   users.doc(id).update(value)
+//   .then(res => {
+//       console.log("Success: account updated:");
+//   })
+//   .catch(error => {
+//       console.error("Error: account updat: ", error);
+//   });
+// }
 
   function signup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password)
       .then((res) => {
-      addUsersId(
+        addUsersId(
           res.user.uid,
           res.user.email,
           password
-          )
+        )
 
       })
   }
@@ -66,19 +103,13 @@ export function AuthProvider({ children }) {
     const unsubscribe = auth.onAuthStateChanged(user => {
 
       if (user) {
-        // firestore
-        //   .collection("users").doc(user.uid)
-        //   .get().then((doc) => {
-
-        //     setCurrentUserData(doc.data())
-
-        //   })
+        
         firestore
-        .collection("users").doc(user.uid)
-        .onSnapshot((doc) => {
+          .collection("users").doc(user.uid)
+          .onSnapshot((doc) => {
             // console.log("Current data: ", doc.data());
             setCurrentUserData(doc.data())
-        });
+          });
       }
       setCurrentUser(user)
       setLoading(false)
@@ -92,6 +123,7 @@ export function AuthProvider({ children }) {
     currentUserData,
     login,
     signup,
+    signInWithGoogle,
     logout,
     resetPassword,
     updateEmail,

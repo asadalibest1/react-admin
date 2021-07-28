@@ -8,7 +8,7 @@ export default function Login() {
 
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { login } = useAuth()
+    const { login, signInWithGoogle } = useAuth()
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
     const history = useHistory()
@@ -86,7 +86,8 @@ export default function Login() {
                                                     Login
                                                 </button>
                                                 <hr />
-                                                <a href="index.html" className="btn btn-google btn-user btn-block">
+                                                <a href="javascript:void(0)" className="btn btn-google btn-user btn-block"
+                                                onClick={signInWithGoogle}>
                                                     <i className="fab fa-google fa-fw"></i> Login with Google
                                                 </a>
                                                 <a href="index.html" className="btn btn-facebook btn-user btn-block">
